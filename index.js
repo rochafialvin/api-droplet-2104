@@ -6,7 +6,7 @@ const cors = require("cors");
 const pool = require("./database");
 
 var corsMiddleware = function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*"); //replace localhost with actual host
+  res.header("Access-Control-Allow-Origin", "rochafi-bootcamp.my.id"); //replace localhost with actual host
   res.header(
     "Access-Control-Allow-Methods",
     "OPTIONS, GET, PUT, PATCH, POST, DELETE"
