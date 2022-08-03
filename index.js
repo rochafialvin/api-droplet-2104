@@ -5,7 +5,23 @@ const port = process.env.PORT || 3000;
 const cors = require("cors");
 const pool = require("./database");
 
-app.use(cors()); // memperbolehkan untuk diakses dari origin yang berbeda
+var corsMiddleware = function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "localhost"); //replace localhost with actual host
+  res.header(
+    "Access-Control-Allow-Methods",
+    "OPTIONS, GET, PUT, PATCH, POST, DELETE"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type, X-Requested-With, Authorization"
+  );
+
+  next();
+};
+
+app.use(corsMiddleware);
+
+// app.use(cors()); // memperbolehkan untuk diakses dari origin yang berbeda
 app.use(express.json()); // agar dapat mengakses data yg dikiirm di req.body
 
 app.get("/", (req, res) => {
