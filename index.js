@@ -9,7 +9,7 @@ app.use(cors()); // memperbolehkan untuk diakses dari origin yang berbeda
 app.use(express.json()); // agar dapat mengakses data yg dikiirm di req.body
 
 app.get("/", (req, res) => {
-  res.send("API is running 🚀");
+  res.send("API is running 🚀😎😻");
 });
 
 app.get("/users", async (req, res, next) => {
